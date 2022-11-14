@@ -33,6 +33,7 @@
 		</Compiler>
 		<Unit filename="Matrici1.txt" />
 		<Unit filename="Matrici2.txt" />
+		<Unit filename="Uguaglianza.txt" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
