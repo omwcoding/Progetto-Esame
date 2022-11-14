@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define righe 4
 #define colonne 4
@@ -23,6 +24,7 @@ int main()
 
 void menu( void )
 {
+  char NomeFile1[10], NomeFile2[10];
   int scelta, indice, i, j;
   int matrice1[righe][4], matrice2[righe][4], matrice3[righe][4];
   FILE *Matrici1ptr, *Matrici2ptr, *Uguaglianzeptr;
@@ -31,15 +33,23 @@ void menu( void )
         "1. Acquisizione da file delle due matrici\n"
         "2. Confronto tra le righe delle due matrici\n"
         "3. Calcolo della trasposta su una delle due matrici\n"
-        "4. Esci dal programma\n");
+        "4. Esci dal programma\n\n");
      scanf("%d", &scelta );
       while( scelta != 4 )
      {
       switch( scelta )
        {
-        case 1 : printf("Acquisizione di file di due matrici:\n");
-                 acquisizionedafile( Matrici1ptr, matrice1 );
-                 acquisizionedafile( Matrici2ptr, matrice2 );
+        case 1 :printf("\nAcquisizione di file di due matrici:\n");
+                printf("Scrivere il nome del primo file (compresa di estensione) : ");
+                scanf(%s, &NomeFile1);
+                if (NomeFile1 = 'Matrici1.txt') {
+                        acquisizionedafile( Matrici1ptr, matrice1 );
+                            }
+                printf("Scrivere il nome del secondo file: ");
+                scanf(%s, &NomeFile2)
+                if (NomeFile2 = 'Matrici2.txt') {
+                        acquisizionedafile( Matrici2ptr, matrice2 );
+                            }
                  break;
 
         case 2 : printf("Uguaglianza tra due righe delle due matrici selezionate\n");
@@ -85,9 +95,9 @@ void menu( void )
 }
 void acquisizionedafile( FILE *fileptr, int matrice[righe][4] )
 {
- if( ( fileptr = fopen( fileptr, "r+") ) == NULL )
+ if( ( fileptr = fopen(NomeFile1, "r+") ) == NULL )
                     {
-                      printf("Non e' stato possibile aprire i file 'Matrici1.txt' e 'Matrici2.txt'\n");
+                      printf("Non e' stato possibile aprire il file 'Matrici1.txt'\n");
                     }
                  else
                     {
