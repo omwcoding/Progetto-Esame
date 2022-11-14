@@ -5,5 +5,7 @@ int main()
 {
     printf("Ciao Vanessa!\n");
     printf("Ciao Omar\n");
+    printf("Ciao Omar\n");
+    printf("Ciao Omar\n");
     return 0;
 }
