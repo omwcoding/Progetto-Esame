@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define righe 4
+#define colonne 4
 void menu( void );
-void acquisizionedafile( FILE *fileptr, int matrice[4][4] );
-void uguaglianzamatrici( int matrice1[4][4], int matrice2[4][4], int matrice3[4][4], int indice );
-void trasposta(int matrice[4][4]);
+void acquisizionedafile( FILE *fileptr, int matrice[4][colonne] );
+void uguaglianzamatrici( FILE *Uguaglianzeptr, int matrice1[4][4], int matrice2[4][colonne], int matrice3[4][colonne], int indice );
+void trasposta(int matrice[4][colonne]);
 void swap(int* a, int *b);
 
 
@@ -21,9 +23,9 @@ int main()
 
 void menu( void )
 {
-  int scelta, indice, j;
-  int matrice1[4][4], matrice2[4][4], matrice3[4][4];
-  FILE *Matrici1ptr, *Matrici2ptr, *Uguaglianzaptr;
+  int scelta, indice, i, j;
+  int matrice1[righe][4], matrice2[righe][4], matrice3[righe][4];
+  FILE *Matrici1ptr, *Matrici2ptr, *Uguaglianzeptr;
 
   printf("Scegli una delle seguenti opzioni : \n"
         "1. Acquisizione da file delle due matrici\n"
@@ -35,18 +37,9 @@ void menu( void )
      {
       switch( scelta )
        {
-        case 1 : printf("Acquisizione di file di due matrici:\n);
-                  if( ( Matrici1ptr = fopen("Matrici1.txt", "r") ) == NULL && ( Matrici2ptr = fopen("Matrici2.txt", "r") ) == NULL )
-                    {
-                      printf("Non e' stato possibile aprire i file 'Matrici1.txt' e 'Matrici2.txt'\n");
-                    }
-                 else
-                    {
-                     acquisizionedafile( Matrici1ptr, matrice1 );
-                     acquisizionedafile( Matrice2ptr, matrice2 );
-                     fclose( Matrici1ptr);
-                     fclose( Matrici2ptr);
-                    }
+        case 1 : printf("Acquisizione di file di due matrici:\n");
+                 acquisizionedafile( Matrici1ptr, matrice1 );
+                 acquisizionedafile( Matrici2ptr, matrice2 );
                  break;
 
         case 2 : printf("Uguaglianza tra due righe delle due matrici selezionate\n");
@@ -54,37 +47,14 @@ void menu( void )
                  scanf("%d", &indice );
 
                  acquisizionedafile( Matrici1ptr, matrice1 );
-                 acquisizionedafile( Matrice2ptr, matrice2 );
-                 uguaglianzamatrici(  matrice1[4][4], matrice2[4][4], matrice3[4][4], indice );
+                 acquisizionedafile( Matrici2ptr, matrice2 );
+                 uguaglianzamatrici( Uguaglianzeptr, matrice1[righe][4], matrice2[righe][4], matrice3[righe][4], indice );
+                 break;
 
-                     for( j = 0; j < 4; j++ )
-                        {
-                         if( matrice1[indice][j] = matrice2[indice][j] )
-                           {
-                            matrice3[indice][j] = matrice1[indice][j];
-                           }
-                        }
-
-                     if( ( Uguaglianzaptr = fopen("Uguaglianza.txt", "w") ) == NULL )
-                       {
-                        printf("Non e' stato possibile aprire il file 'Uguaglianza.txt'\n");
-                       }
-                    else
-                      {
-                       for( i = 0; i < 4; i++ )
-                          {
-                           for( j = 0; j < 4; j++)
-                              { fprintf( Uguaglianzaptr ,"%d ", matrice3[i][j]);
-                                printf("%d ", matrice[i][j]);
-                              }
-                            puts("");
-                          }
-                        fclose(Uguaglianzaptr);
-                      }
         case 3 : printf("Scegli la matrice al quale applicare il calcolo della traspost: \n"
                         "1 per applicare il calcolo sulla prima matrice\n"
                         "2 per applicare il calcolo sulla seconda matrice\n");
-                int n; //variabile per la scelta della matrice su cui applicare il calcolo della trasposta
+                int n; /*variabile per la scelta della matrice su cui applicare il calcolo della trasposta */
                 scanf("%d", &n);
                 if (n==1)
                 {
@@ -113,10 +83,20 @@ void menu( void )
 
     }
 }
-void acquisizionedafile( FILE *fileptr, int matrice[4][4] );
+void acquisizionedafile( FILE *fileptr, int matrice[righe][4] )
 {
+ if( ( fileptr = fopen( fileptr, "r+") ) == NULL )
+                    {
+                      printf("Non e' stato possibile aprire i file 'Matrici1.txt' e 'Matrici2.txt'\n");
+                    }
+                 else
+                    {
+
+                     fclose( fileptr);
+                    }
 
 }
+
 void swap(int* a, int *b)
 {
     int temp;
@@ -124,14 +104,43 @@ void swap(int* a, int *b)
     *a=*b;
     *b=temp;
 }
-// Converts A[][] to its transpose
-void trasposta(int matrice[4][4])
+/* Converts A[][] to its transpose */
+void trasposta(int matrice[righe][4])
 {
 
-    int i, j;
-    for (int i = 0; i < 4; i++){
-        for (int j = i + 1; j < 4; j++){
-            swap(&A[i][j],&A[j][i]);
+    int k, y;
+    for ( k = 0; k < righe; k++){
+        for ( y = k + 1; y < colonne; y++){
+            swap(&matrice[k][y],&matrice[y][k]);
         }
     }
+}
+
+void uguaglianzamatrici( FILE *Uguaglianzeptr, int matrice1[4][4], int matrice2[4][colonne], int matrice3[4][colonne], int indice )
+{
+ int i, j;
+  for( j = 0; j < colonne; j++ )
+                        {
+                         if( matrice1[indice][j] = matrice2[indice][j] )
+                           {
+                            matrice3[indice][j] = matrice1[indice][j];
+                           }
+                        }
+
+                     if( ( Uguaglianzeptr = fopen("Uguaglianza.txt", "w") ) == NULL )
+                       {
+                        printf("Non e' stato possibile aprire il file 'Uguaglianza.txt'\n");
+                       }
+                    else
+                      {
+                       for( i = 0; i < righe; i++ )
+                          {
+                           for( j = 0; j < colonne; j++)
+                              { fprintf( Uguaglianzeptr ,"%d ", matrice3[i][j]);
+                                printf("%d ", matrice3[i][j]);
+                              }
+                            puts("");
+                          }
+                        fclose(Uguaglianzeptr);
+                      }
 }
