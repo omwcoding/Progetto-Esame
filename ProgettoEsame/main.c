@@ -24,40 +24,48 @@ int main()
 
 void menu( void )
 {
-  char NomeFile1[15], NomeFile2[15];
-  int scelta, indice;
-  int matrice1[righe][4], matrice2[righe][4], matrice3[righe][4];
+    char NomeFile1[15], NomeFile2[15];
+    int scelta, indice;
+    int matrice1[righe][4], matrice2[righe][4], matrice3[righe][4];
 
-  printf("Scegli una delle seguenti opzioni : \n"
-        "1. Acquisizione da file delle due matrici\n"
-        "2. Confronto tra le righe delle due matrici\n"
-        "3. Calcolo della trasposta su una delle due matrici\n"
-        "4. Esci dal programma\n\n");
-     scanf("%d", &scelta );
-      while( scelta != 4 )
-     {
-      switch( scelta )
-       {
-        case 1 :printf("\nAcquisizione di file di due matrici:\n");
+    printf("Scegli una delle seguenti opzioni : \n"
+            "1. Acquisizione da file delle due matrici\n"
+            "2. Confronto tra le righe delle due matrici\n"
+            "3. Calcolo della trasposta su una delle due matrici\n"
+            "4. Esci dal programma\n\n");
+    scanf("%d", &scelta );
+
+    while( scelta != 4 )
+    {
+        switch( scelta )
+        {
+            case 1 :
+                printf("\nAcquisizione di file di due matrici:\n");
                 printf("Scrivere il nome del primo file (compresa di estensione) : ");
                 scanf("%s", NomeFile1);
-                if (!(strcmp(NomeFile1, "Matrici1.txt" ))) {
-                        acquisizionedafile( NomeFile1, matrice1 );
-                    }
-                else {
-                        printf("Il file da lei scelto non e' disponibile\n");
-                    }
+
+                if (!(strcmp(NomeFile1, "Matrici1.txt" )))
+                {
+                    acquisizionedafile( NomeFile1, matrice1 );
+                }
+                    else
+                {
+                    printf("Il file da lei scelto non e' disponibile\n");
+                }
                 printf("Scrivere il nome del secondo file: ");
                 scanf("%s", NomeFile2);
-                if (!(strcmp(NomeFile2, "Matrici2.txt"))) {
-                        acquisizionedafile( NomeFile2, matrice2 );
-                            }
-                else {
-                        printf("Il file da lei scelto non e' disponibile\n");
+                if (!(strcmp(NomeFile2, "Matrici2.txt")))
+                {
+                    acquisizionedafile( NomeFile2, matrice2 );
+                }
+                    else
+                    {
+                    printf("Il file da lei scelto non e' disponibile\n");
                     }
-                break;
+            break;
 
-        case 2 : printf("Uguaglianza tra due righe delle due matrici selezionate\n");
+            case 2 :
+                 printf("Uguaglianza tra due righe delle due matrici selezionate\n");
                  printf("Scegli l'indice della riga delle due matrici da confrontare : ");
                  scanf("%d", &indice );
 
