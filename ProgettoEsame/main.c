@@ -28,7 +28,7 @@ void menu( void )
     int scelta, indice;
     int matrice1[righe][4], matrice2[righe][4], matrice3[righe][4];
 
-    printf("Scegli una delle seguenti opzioni : \n"
+    printf( "Scegli una delle seguenti opzioni : \n"
             "1. Acquisizione da file delle due matrici\n"
             "2. Confronto tra le righe delle due matrici\n"
             "3. Calcolo della trasposta su una delle due matrici\n"
