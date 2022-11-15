@@ -7,6 +7,13 @@
 #define righe 4
 #define colonne 4
 
+/**
+*   @author Balde Omar, Cutrignelli Vanessa, De Santis Samantha
+*   @file main.c
+*   @brief Questo file utilizza il modulo "menu".
+*   Chiamando questa funzione vediamo a schermo il menu di scelta contenente le varie opzioni.
+*/
+
 int main()
 {
     printf("Benvenuto, faccia la sua scelta tra le seguenti : \n");
@@ -15,5 +22,5 @@ int main()
 }
 
 //fare un controllo : quando facciamo una scelta tra le opzioni elencate nel menu, inserendo un carattere va in loop
-
+//capire se ci serve un altro modulo per il tipo di dato astratto Matrice
 

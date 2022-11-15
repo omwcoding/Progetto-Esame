@@ -1,3 +1,13 @@
+/**
+ *  @file funzioni.c
+ *  @brief Questo modulo contiene tutte le funzioni utilizzate dal modulo "menu".
+ *
+ *  @version 1.0
+ *  @date 15/11/2022
+ *  @authors Balde Omar, Cutrignelli Vanessa, De Santis Samantha
+ */
+
+
 //Acquisizione
 #include "funzioni.h"
 #include <stdio.h>

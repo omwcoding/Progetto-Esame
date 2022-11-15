@@ -1,3 +1,11 @@
+/**
+ *  @file menu.c
+ *  @brief Questo modulo gestisce le varie funzionalità a cui l'utente può avere accesso.
+ *
+ *  @version 1.0
+ *  @date 15/11/2022
+ *  @authors Balde Omar, Cutrignelli Vanessa, De Santis Samantha
+ */
 #include "menu.h"
 //Includere le altre librerie di menu
 
