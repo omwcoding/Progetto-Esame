@@ -9,6 +9,7 @@ void acquisizionedafile( char *, int matrice[4][colonne] );
 void uguaglianzamatrici( int matrice1[4][4], int matrice2[4][colonne],int indice );
 void trasposta(int matrice[4][colonne]);
 void swap(int* a, int *b);
+void stampamatrice (int matrice[4][4]);
 
 
 int main()
@@ -69,9 +70,10 @@ void menu( void )
                 printf("Scegli l'indice della riga delle due matrici da confrontare : ");
                 scanf("%d", &indice );
 
+
                 acquisizionedafile( NomeFile1, matrice1 );
                 acquisizionedafile( NomeFile2, matrice2 );
-                uguaglianzamatrici( matrice1[righe][4], matrice2[righe][4], indice );
+                uguaglianzamatrici( matrice1[righe][4], matrice2[righe][4], indice-1 );
             break;
 
             case 3 :
@@ -84,11 +86,15 @@ void menu( void )
                 {
                     acquisizionedafile( NomeFile1, matrice1 );
                     trasposta(matrice1);
+                    stampamatrice(matrice1);
+                    stampamatricefile (matrice1, "Trasposta.txt");
                 }
-                if (n==2)
+                else if (n==2)
                 {
                     acquisizionedafile( NomeFile2, matrice2 );
                     trasposta(matrice2);
+                    stampamatrice(matrice2);
+                    stampamatricefile (matrice2, "Trasposta.txt");
                 }
                 else
                 {
@@ -98,8 +104,8 @@ void menu( void )
             break;
 
             default :
-                printf("Scelta non valida\n");
-                menu();
+                printf("Valore di input non valido!\n");
+                //menu();
                 break;
       }
       printf("Faccia la sua prossima scelta tra quelle elencate prima\n");
@@ -165,11 +171,8 @@ void acquisizionedafile(char * p, int matrice[righe][4] )
                 fscanf(fileptr, "%19s", StringaLetta);
             }
         }
-        //Controllo della lettura delle matrici
-        for (int i = 0; i<righe; i++)
-        {
-            printf("%d %d %d %d\n", matrice[i][0], matrice[i][1], matrice[i][2], matrice[i][3]);
-        }
+        stampamatrice (matrice);
+
         fclose( fileptr);
 }
 
@@ -197,17 +200,26 @@ void trasposta(int matrice[righe][4])
 
 void uguaglianzamatrici(int matrice1[4][4], int matrice2[4][colonne],  int indice )
 {
-    int matrice3[4][colonne];
+    int count = 0;
+    int matrice3[4][colonne] = {0};
     FILE *Uguaglianzeptr;
     int i, j;
     for( j = 0; j < colonne; j++ )
     {
         if( matrice1[indice][j] = matrice2[indice][j] )
         {
-            matrice3[indice][j] = matrice1[indice][j];
+            count++;
+
         }
     }
+        if (count == colonne)
+        {
+            for( j = 0; j < colonne; j++ )
+            {
+                matrice3[indice][j] = matrice1[indice][j];
+            }
 
+        }
         if( ( Uguaglianzeptr = fopen("Uguaglianza.txt", "w") ) == NULL )
         {
             printf("Non e' stato possibile aprire il file 'Uguaglianza.txt'\n");
@@ -225,4 +237,31 @@ void uguaglianzamatrici(int matrice1[4][4], int matrice2[4][colonne],  int indic
                 }
             fclose(Uguaglianzeptr);
             }
+}
+void stampamatrice (int matrice[4][4])
+{
+        for (int i = 0; i<righe; i++)
+        {
+            printf("%d %d %d %d\n", matrice[i][0], matrice[i][1], matrice[i][2], matrice[i][3]);
+        }
+        printf("\n");
+}
+
+void stampamatricefile (int matrice[][4], char nomefile[])
+{
+        FILE *fileptr;
+        if( ( fileptr = fopen(nomefile, "w") ) == NULL )
+        {
+            printf("Non e' stato possibile aprire il file!");
+            return;
+        }
+        else
+        {
+        for (int i = 0; i<righe; i++)
+        {
+            fprintf(fileptr, "%d#%d#%d#%d\n", matrice[i][0], matrice[i][1], matrice[i][2], matrice[i][3]);
+        }
+        fclose(fileptr);
+        }
+
 }
