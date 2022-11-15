@@ -5,11 +5,11 @@
 #define righe 4
 #define colonne 4
 void menu( void );
-void acquisizionedafile( char *, int matrice[4][colonne] );
-void uguaglianzamatrici( int matrice1[4][4], int matrice2[4][colonne],int indice );
-void trasposta(int matrice[4][colonne]);
-void swap(int* a, int *b);
-void stampamatrice (int matrice[4][4]);
+int **acquisizionedafile(char * p);
+int ** uguaglianzamatrici(int **matrice1, int **matrice2,  int indice  );
+int ** trasposta(int ** matrice);
+void stampamatrice (int ** matrice);
+void stampamatricefile (int ** matrice, char nomefile[]);
 
 
 int main()
@@ -27,7 +27,9 @@ void menu( void )
 {
     char NomeFile1[15], NomeFile2[15];
     int scelta, indice;
-    int matrice1[righe][4], matrice2[righe][4], matrice3[righe][4];
+    int ** matrice1;
+    int ** matrice2;
+    int ** matrice3;
 
     printf( "Scegli una delle seguenti opzioni : \n"
             "1. Acquisizione da file delle due matrici\n"
@@ -45,19 +47,23 @@ void menu( void )
                 printf("Scrivere il nome del primo file (compresa di estensione) : ");
                 scanf("%s", NomeFile1);
 
+                //stampamatrice(matrice1);
                 if (!(strcmp(NomeFile1, "Matrici1.txt" )))
                 {
-                    acquisizionedafile( NomeFile1, matrice1 );
+                    matrice1=acquisizionedafile( NomeFile1 );
+                    stampamatrice(matrice1);
                 }
                     else
                 {
                     printf("Il file da lei scelto non e' disponibile\n");
                 }
+
                 printf("Scrivere il nome del secondo file: ");
                 scanf("%s", NomeFile2);
                 if (!(strcmp(NomeFile2, "Matrici2.txt")))
                 {
-                    acquisizionedafile( NomeFile2, matrice2 );
+                    matrice2=acquisizionedafile( NomeFile2);
+                    stampamatrice(matrice2);
                 }
                     else
                     {
@@ -70,10 +76,10 @@ void menu( void )
                 printf("Scegli l'indice della riga delle due matrici da confrontare : ");
                 scanf("%d", &indice );
 
+                matrice3 = uguaglianzamatrici( matrice1, matrice2, indice-1);
 
-                acquisizionedafile( "Matrici1.txt", matrice1 );
-                acquisizionedafile( "Matrici2.txt", matrice2 );
-                uguaglianzamatrici( matrice1, matrice2, indice-1 );
+                stampamatrice(matrice3);
+                stampamatricefile(matrice3, "Uguaglianza.txt");
             break;
 
             case 3 :
@@ -84,17 +90,16 @@ void menu( void )
                 scanf("%d", &n);
                 if (n==1)
                 {
-                    acquisizionedafile( "Matrici1.txt", matrice1 );
-                    trasposta(matrice1);
-                    stampamatrice(matrice1);
-                    stampamatricefile (matrice1, "Trasposta.txt");
+
+                    matrice3 = trasposta(matrice1);
+                    stampamatrice(matrice3);
+                    stampamatricefile (matrice3, "Trasposta.txt");
                 }
                 else if (n==2)
                 {
-                    acquisizionedafile( "Matrici2.txt", matrice2 );
-                    trasposta(matrice2);
-                    stampamatrice(matrice2);
-                    stampamatricefile (matrice2, "Trasposta.txt");
+                    matrice3 = trasposta(matrice2);
+                    stampamatrice(matrice3);
+                    stampamatricefile (matrice3, "Trasposta.txt");
                 }
                 else
                 {
@@ -112,10 +117,18 @@ void menu( void )
       scanf("%d", &scelta );
     }
 }
-void acquisizionedafile(char * p, int matrice[righe][4] )
+int **acquisizionedafile(char * p)
 {
+    int* values = calloc(4*4, sizeof(int));
+    int** matrice = malloc(4* sizeof(int*));
+
+    //int matrice[righe][colonne];
     char * tokenString;
     FILE *fileptr;
+    for (int i=0; i<4; ++i)
+    {
+        matrice[i] = values + i*4;
+    }
     if( ( fileptr = fopen(p, "r") ) == NULL )
     {
         printf("Non e' stato possibile aprire il file\n");
@@ -171,38 +184,54 @@ void acquisizionedafile(char * p, int matrice[righe][4] )
                 fscanf(fileptr, "%19s", StringaLetta);
             }
         }
-        stampamatrice (matrice);
+        //stampamatrice (matrice);
         fclose( fileptr);
+        return matrice;
 }
 
-void swap(int* a, int *b)
+/*void swap(int* a, int *b)
 {
     int temp;
     temp=*a;
     *a=*b;
     *b=temp;
 }
-
-/* Converts A[][] to its transpose */
-void trasposta(int matrice[righe][4])
+*/
+int ** trasposta(int ** matrice)
 {
 
     int k, y;
+    int* values = calloc(4*4, sizeof(int));
+    int** matrice3 = malloc(4* sizeof(int*));
+    for (int i=0; i<4; ++i)
+    {
+        matrice3[i] = values + i*4;
+    }
     for ( k = 0; k < righe; k++)
     {
-        for ( y = k + 1; y < colonne; y++)
+        for ( y = 0 ; y < colonne; y++)
         {
-            swap(&matrice[k][y],&matrice[y][k]);
+            matrice3[k][y]=matrice[y][k];
+            //swap(&matrice[k][y],&matrice[y][k]);
+
         }
     }
+    return matrice3;
+
 }
 
-void uguaglianzamatrici(int matrice1[righe][colonne], int matrice2[righe][colonne],  int indice )
+int ** uguaglianzamatrici(int **matrice1, int **matrice2,  int indice  )
 {
     int count = 0;
-    int matrice3[righe][colonne] = {0};
     FILE *Uguaglianzeptr;
     int i, j;
+    int* values = calloc(4*4, sizeof(int));
+    int** matrice3 = malloc(4* sizeof(int*));
+    for (int i=0; i<4; ++i)
+    {
+        matrice3[i] = values + i*4;
+    }
+
     for( j = 0; j < colonne; j++ )
     {
         if( matrice1[indice][j] == matrice2[indice][j] )
@@ -219,10 +248,9 @@ void uguaglianzamatrici(int matrice1[righe][colonne], int matrice2[righe][colonn
             }
 
         }
-        stampamatrice(matrice3);
-        stampamatricefile(matrice3, "Uguaglianza.txt");
+        return matrice3;
 }
-void stampamatrice (int matrice[4][4])
+void stampamatrice (int ** matrice)
 {
         for (int i = 0; i<righe; i++)
         {
@@ -231,7 +259,7 @@ void stampamatrice (int matrice[4][4])
         printf("\n");
 }
 
-void stampamatricefile (int matrice[][4], char nomefile[])
+void stampamatricefile (int ** matrice, char nomefile[])
 {
         FILE *fileptr;
         if( ( fileptr = fopen(nomefile, "w") ) == NULL )
