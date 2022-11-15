@@ -100,25 +100,27 @@ void menu( void )
 }
 void acquisizionedafile(char * p, int matrice[righe][4] )
 {
- char * tokenString;
- FILE *fileptr;
- if( ( fileptr = fopen(p, "r+") ) == NULL )
-                    {
-                      printf("Non e' stato possibile aprire il file\n");
-                    }
-                 else
-                    {
-                      while(!feof(fileptr))
+    char * tokenString;
+    FILE *fileptr;
+    if( ( fileptr = fopen(p, "r") ) == NULL )
         {
+            printf("Non e' stato possibile aprire il file\n");
+        }
+        else
+        {
+            printf("Il file e' stato aperto correttamente\n");
             char StringaLetta[20];
             fscanf(fileptr, "%19s", StringaLetta);
-            tokenString = strtok(StringaLetta, "#");
-            short temp = 0, i = 0, j = 0;
-            int t;
-            while(tokenString != NULL)
-            {
 
-                switch (temp)
+            while(!feof(fileptr))
+            {
+                tokenString = strtok(StringaLetta, "#");
+                short temp = 0, i = 0, j = 0;
+                int t;
+
+                while(tokenString != NULL)
+                {
+                    switch (temp)
                 {
                     case 0:
                         t=atoi(tokenString);
@@ -146,34 +148,22 @@ void acquisizionedafile(char * p, int matrice[righe][4] )
                         if ( j==4 ) { temp ++; }
                         break;
                     case 4:
-                        t=atoi(tokenString);
-                        matrice[i][j] = t;
-                        j++;
-                        if ( j==4 ) { temp ++; }
                         break;
                 }
                 tokenString = strtok(NULL, "#");
 
             }
                 j = 0;
-            //if(!controllaConversione(bufferIdentificatore, bufferNumeroCfu, bufferNumeroStudenti))
-            //{
-            //    return 2; //errore durante la conversione
-            //}
-
-            //inserisciElemento((unsigned int)strtoul(bufferIdentificatore, NULL, 10),
-            //         bufferNomeCorso, bufferDocente, (unsigned int)strtoul(bufferNumeroCfu, NULL, 10),
-            //       (unsigned int)strtoul(bufferNumeroStudenti, NULL, 10));
-            //fscanf(filePointer, "%319s", stringaLetta);
+                fscanf(fileptr, "%19s", StringaLetta);
         }
-    }
-
-    fclose(filePointer);
-                     printf("Il file e' stato aperto correttamente\n");
+    }               for (int i = 0; i<righe; i++)
+                    {
+                        printf("%d %d %d %d", matrice[i][0], matrice[i][1], matrice[i][2], matrice[i][3]);
+                    }
                      fclose( fileptr);
                     }
 
-}
+
 
 void swap(int* a, int *b)
 {

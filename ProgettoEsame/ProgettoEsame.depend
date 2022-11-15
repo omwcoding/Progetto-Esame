@@ -1,3 +1,8 @@
 # depslib dependency file v1.0
 1668180381 source:c:\users\omar\desktop\progetto esame\progettoesame\a.c
 
+1668512543 source:c:\users\omar\desktop\progetto esame\progettoesame\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
