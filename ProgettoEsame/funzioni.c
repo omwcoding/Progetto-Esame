@@ -46,7 +46,6 @@ int **acquisizionedafile(char * p)
             {
                 tokenString = strtok(StringaLetta, "#");
 
-
                 while(tokenString != NULL)
                 {
                     switch (temp)
@@ -63,21 +62,21 @@ int **acquisizionedafile(char * p)
                         matrice[i][j] = t;
                         j++;
                         if ( j==4 ) { temp ++; i++;}
-                        break;
+                    break;
                     case 2:
                         t=atoi(tokenString);
                         matrice[i][j] = t;
                         j++;
                         if ( j==4 ) { temp ++; i++; }
-                        break;
+                    break;
                     case 3:
-                       t=atoi(tokenString);
+                        t=atoi(tokenString);
                         matrice[i][j] = t;
                         j++;
                         if ( j==4 ) { temp ++; }
-                        break;
+                    break;
                     case 4:
-                        break;
+                    break;
                     }
                     tokenString = strtok(NULL, "#");
                 }
@@ -148,15 +147,15 @@ int ** uguaglianzamatrici(int **matrice1, int **matrice2,  int indice  )
 
         }
     }
-        if (count == colonne)
+    if (count == colonne)
+    {
+        for( j = 0; j < colonne; j++ )
         {
-            for( j = 0; j < colonne; j++ )
-            {
-                matrice3[indice][j] = matrice1[indice][j];
-            }
-
+            matrice3[indice][j] = matrice1[indice][j];
         }
-        return matrice3;
+
+    }
+    return matrice3;
 }
 
 /**

@@ -51,9 +51,9 @@ void menu( void )
                     stampamatrice(matrice1);                    //Richiamiamo la funzione "stampamatrice" con parametro "matrice1"
                 }
                     else
-                {
-                    printf("Il file da lei scelto non e' disponibile\n");
-                }
+                    {
+                        printf("Il file da lei scelto non e' disponibile\n");
+                    }
 
                 printf("Scrivere il nome del secondo file da cui acquisire la matrice: ");
                 scanf("%s", NomeFile2);
@@ -64,7 +64,7 @@ void menu( void )
                 }
                     else
                     {
-                    printf("Il file da lei scelto non e' disponibile!\n");
+                        printf("Il file da lei scelto non e' disponibile!\n");
                     }
             break;
 
@@ -87,28 +87,27 @@ void menu( void )
                 scanf("%d", &n);        //L'utente sceglie su quale delle due matrici applicare il calcolo della trasposta: 1 per "Matrici1.txt", 2 per "Matrici2.txt"
                 if (n==1)
                 {
-
                     matrice3 = trasposta(matrice1);     //Assegnamo il ritorno della funzione "trasposta" con parametro "matrice1" alla variabile matrice 3
                     stampamatrice(matrice3);            //Richiamiamo la funzione "stampamatrice" con parametro "matrice3"
                     stampamatricefile (matrice3, "Trasposta.txt");  //Richiamiamo la funzione "stampamatricefile" con parametro "matrice3" e "Trasposta.txt"
                 }
-                else if (n==2)
-                {
-                    matrice3 = trasposta(matrice2);     //Assegnamo il ritorno della funzione "trasposta" con parametro "matrice2" alla variabile matrice 3
-                    stampamatrice(matrice3);            //Richiamiamo la funzione "stampamatrice" con parametro "matrice3"
-                    stampamatricefile (matrice3, "Trasposta.txt");  //Richiamiamo la funzione "stampamatricefile" con parametro "matrice3" e "Trasposta.txt"
-                }
-                else
-                {
-                    printf("Scelta non valida!\n");     //L'inserimento dell'utente non è valido
-                }
+                    else if (n==2)
+                    {
+                        matrice3 = trasposta(matrice2);     //Assegnamo il ritorno della funzione "trasposta" con parametro "matrice2" alla variabile matrice 3
+                        stampamatrice(matrice3);            //Richiamiamo la funzione "stampamatrice" con parametro "matrice3"
+                        stampamatricefile (matrice3, "Trasposta.txt");  //Richiamiamo la funzione "stampamatricefile" con parametro "matrice3" e "Trasposta.txt"
+                    }
+                        else
+                        {
+                            printf("Scelta non valida!\n");     //L'inserimento dell'utente non è valido
+                        }
 
             break;
 
             default :
                 printf("Valore di input non valido!\n");    //L'inserimento dell'utente nel menu non è valido CASO LIMITE:
                                                             //caso in cui l'utente inserisca un input non valido (n<1 o n>4)
-                break;
+            break;
       }
       printf("Faccia la sua prossima scelta, tra quelle elencate prima\n");
       scanf("%d", &scelta );
