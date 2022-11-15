@@ -7,8 +7,6 @@
  *  @authors Balde Omar, Cutrignelli Vanessa, De Santis Samantha
  */
 
-
-//Acquisizione
 #include "funzioni.h"
 #include <stdio.h>
 #include <stdlib.h>
