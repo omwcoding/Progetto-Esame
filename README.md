@@ -25,6 +25,8 @@ tastiera dall’utente
 ii. l'operazione deve restituire una nuova variabile di tipo di dato astratto cosi
 avvalorata
 iii. il risultato sarà visualizzato a console e memorizzato nel file Trasposta.txt
+
+
 CONSEGNA:
 • consegna su portale ADA https://elearning.di.uniba.it/ (modalità Consegna
 compito) entro le 10:00 delle 48 ore successive (oltre le ore 10:00 il portale si
