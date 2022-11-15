@@ -92,7 +92,7 @@ void menu( void )
                 }
                 else
                 {
-                    printf("Scelta non valida!");
+                    printf("Scelta non valida!\n");
                 }
 
             break;
@@ -119,12 +119,13 @@ void acquisizionedafile(char * p, int matrice[righe][4] )
             printf("Il file e' stato aperto correttamente\n");
             char StringaLetta[20];
             fscanf(fileptr, "%19s", StringaLetta);
+            short temp = 0, i = 0, j = 0;
+            int t;
 
             while(!feof(fileptr))
             {
                 tokenString = strtok(StringaLetta, "#");
-                short temp = 0, i = 0, j = 0;
-                int t;
+
 
                 while(tokenString != NULL)
                 {
@@ -164,9 +165,10 @@ void acquisizionedafile(char * p, int matrice[righe][4] )
                 fscanf(fileptr, "%19s", StringaLetta);
             }
         }
+        //Controllo della lettura delle matrici
         for (int i = 0; i<righe; i++)
         {
-            printf("%d %d %d %d", matrice[i][0], matrice[i][1], matrice[i][2], matrice[i][3]);
+            printf("%d %d %d %d\n", matrice[i][0], matrice[i][1], matrice[i][2], matrice[i][3]);
         }
         fclose( fileptr);
 }
