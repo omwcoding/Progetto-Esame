@@ -14,4 +14,6 @@ int main()
     return 0;
 }
 
+//fare un controllo : quando facciamo una scelta tra le opzioni elencate nel menu, inserendo un carattere va in loop
+
 

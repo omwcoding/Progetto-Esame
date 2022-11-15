@@ -26,3 +26,23 @@
 	<stdlib.h>
 	<string.h>
 
+1668537307 source:c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\funzioni.c
+	"funzioni.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1668537307 c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\funzioni.h
+
+1668537373 source:c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"menu.h"
+	"funzioni.h"
+
+1668537307 c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\menu.h
+
+1668537307 source:c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\menu.c
+	"menu.h"
+

@@ -88,7 +88,8 @@ void menu( void )
             break;
 
             default :
-                printf("Valore di input non valido!\n"); //Caso in cui l'utente inserisca un imput non valido (n<1 o n>4)
+                printf("Valore di input non valido!\n");
+                //Caso in cui l'utente inserisca un input non valido (n<1 o n>4) - CASO LIMITE
                 break;
       }
       printf("Faccia la sua prossima scelta, tra quelle elencate prima\n");
