@@ -6,8 +6,17 @@
 	<stdlib.h>
 	<string.h>
 
-1668534409 source:c:\users\desan\onedrive\desktop\progetto-esame\progettoesame\main.c
+1668535999 source:c:\users\desan\onedrive\desktop\progetto-esame\progettoesame\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	"menu.h"
+	"funzioni.h"
+
+1668535616 source:c:\users\desan\onedrive\desktop\progetto-esame\progettoesame\menu.c
+	"menu.h"
+
+1668535616 c:\users\desan\onedrive\desktop\progetto-esame\progettoesame\menu.h
+
+1668536149 c:\users\desan\onedrive\desktop\progetto-esame\progettoesame\funzioni.h
 
