@@ -5,8 +5,8 @@
 #define righe 4
 #define colonne 4
 void menu( void );
-void acquisizionedafile( FILE *fileptr, int matrice[4][colonne] );
-void uguaglianzamatrici( FILE *Uguaglianzeptr, int matrice1[4][4], int matrice2[4][colonne], int matrice3[4][colonne], int indice );
+void acquisizionedafile( char *, int matrice[4][colonne] );
+void uguaglianzamatrici( int matrice1[4][4], int matrice2[4][colonne],int indice );
 void trasposta(int matrice[4][colonne]);
 void swap(int* a, int *b);
 
@@ -24,10 +24,9 @@ int main()
 
 void menu( void )
 {
-  char NomeFile1[10], NomeFile2[10];
-  int scelta, indice, i, j;
+  char NomeFile1[15], NomeFile2[15];
+  int scelta, indice;
   int matrice1[righe][4], matrice2[righe][4], matrice3[righe][4];
-  FILE *Matrici1ptr, *Matrici2ptr, *Uguaglianzeptr;
 
   printf("Scegli una delle seguenti opzioni : \n"
         "1. Acquisizione da file delle due matrici\n"
@@ -41,24 +40,30 @@ void menu( void )
        {
         case 1 :printf("\nAcquisizione di file di due matrici:\n");
                 printf("Scrivere il nome del primo file (compresa di estensione) : ");
-                scanf(%s, &NomeFile1);
-                if (NomeFile1 = 'Matrici1.txt') {
-                        acquisizionedafile( Matrici1ptr, matrice1 );
-                            }
+                scanf("%s", NomeFile1);
+                if (!(strcmp(NomeFile1, "Matrici1.txt" ))) {
+                        acquisizionedafile( NomeFile1, matrice1 );
+                    }
+                else {
+                        printf("Il file da lei scelto non e' disponibile\n");
+                    }
                 printf("Scrivere il nome del secondo file: ");
-                scanf(%s, &NomeFile2)
-                if (NomeFile2 = 'Matrici2.txt') {
-                        acquisizionedafile( Matrici2ptr, matrice2 );
+                scanf("%s", NomeFile2);
+                if (!(strcmp(NomeFile2, "Matrici2.txt"))) {
+                        acquisizionedafile( NomeFile2, matrice2 );
                             }
-                 break;
+                else {
+                        printf("Il file da lei scelto non e' disponibile\n");
+                    }
+                break;
 
         case 2 : printf("Uguaglianza tra due righe delle due matrici selezionate\n");
                  printf("Scegli l'indice della riga delle due matrici da confrontare : ");
                  scanf("%d", &indice );
 
-                 acquisizionedafile( Matrici1ptr, matrice1 );
-                 acquisizionedafile( Matrici2ptr, matrice2 );
-                 uguaglianzamatrici( Uguaglianzeptr, matrice1[righe][4], matrice2[righe][4], matrice3[righe][4], indice );
+                 acquisizionedafile( NomeFile1, matrice1 );
+                 acquisizionedafile( NomeFile2, matrice2 );
+                 uguaglianzamatrici( matrice1[righe][4], matrice2[righe][4], indice );
                  break;
 
         case 3 : printf("Scegli la matrice al quale applicare il calcolo della traspost: \n"
@@ -68,12 +73,12 @@ void menu( void )
                 scanf("%d", &n);
                 if (n==1)
                 {
-                    acquisizionedafile( Matrici1ptr, matrice1 );
+                    acquisizionedafile( NomeFile1, matrice1 );
                     trasposta(matrice1);
                 }
                 if (n==2)
                 {
-                    acquisizionedafile( Matrici2ptr, matrice2 );
+                    acquisizionedafile( NomeFile2, matrice2 );
                     trasposta(matrice2);
                 }
                 else
@@ -93,15 +98,78 @@ void menu( void )
 
     }
 }
-void acquisizionedafile( FILE *fileptr, int matrice[righe][4] )
+void acquisizionedafile(char * p, int matrice[righe][4] )
 {
- if( ( fileptr = fopen(NomeFile1, "r+") ) == NULL )
+ char * tokenString;
+ FILE *fileptr;
+ if( ( fileptr = fopen(p, "r+") ) == NULL )
                     {
-                      printf("Non e' stato possibile aprire il file 'Matrici1.txt'\n");
+                      printf("Non e' stato possibile aprire il file\n");
                     }
                  else
                     {
+                      while(!feof(fileptr))
+        {
+            char StringaLetta[20];
+            fscanf(fileptr, "%19s", StringaLetta);
+            tokenString = strtok(StringaLetta, "#");
+            short temp = 0, i = 0, j = 0;
+            int t;
+            while(tokenString != NULL)
+            {
 
+                switch (temp)
+                {
+                    case 0:
+                        t=atoi(tokenString);
+                        matrice[i][j] = t;
+                        j++;
+                        if ( j==4 ) { temp ++; i++;}
+
+                        break;
+                    case 1:
+                        t=atoi(tokenString);
+                        matrice[i][j] = t;
+                        j++;
+                        if ( j==4 ) { temp ++; i++;}
+                        break;
+                    case 2:
+                        t=atoi(tokenString);
+                        matrice[i][j] = t;
+                        j++;
+                        if ( j==4 ) { temp ++; i++; }
+                        break;
+                    case 3:
+                       t=atoi(tokenString);
+                        matrice[i][j] = t;
+                        j++;
+                        if ( j==4 ) { temp ++; }
+                        break;
+                    case 4:
+                        t=atoi(tokenString);
+                        matrice[i][j] = t;
+                        j++;
+                        if ( j==4 ) { temp ++; }
+                        break;
+                }
+                tokenString = strtok(NULL, "#");
+
+            }
+                j = 0;
+            //if(!controllaConversione(bufferIdentificatore, bufferNumeroCfu, bufferNumeroStudenti))
+            //{
+            //    return 2; //errore durante la conversione
+            //}
+
+            //inserisciElemento((unsigned int)strtoul(bufferIdentificatore, NULL, 10),
+            //         bufferNomeCorso, bufferDocente, (unsigned int)strtoul(bufferNumeroCfu, NULL, 10),
+            //       (unsigned int)strtoul(bufferNumeroStudenti, NULL, 10));
+            //fscanf(filePointer, "%319s", stringaLetta);
+        }
+    }
+
+    fclose(filePointer);
+                     printf("Il file e' stato aperto correttamente\n");
                      fclose( fileptr);
                     }
 
@@ -126,8 +194,10 @@ void trasposta(int matrice[righe][4])
     }
 }
 
-void uguaglianzamatrici( FILE *Uguaglianzeptr, int matrice1[4][4], int matrice2[4][colonne], int matrice3[4][colonne], int indice )
+void uguaglianzamatrici(int matrice1[4][4], int matrice2[4][colonne],  int indice )
 {
+ int matrice3[4][colonne];
+ FILE *Uguaglianzeptr;
  int i, j;
   for( j = 0; j < colonne; j++ )
                         {
