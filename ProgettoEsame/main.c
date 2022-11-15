@@ -71,8 +71,8 @@ void menu( void )
                 scanf("%d", &indice );
 
 
-                acquisizionedafile( NomeFile1, matrice1 );
-                acquisizionedafile( NomeFile2, matrice2 );
+                acquisizionedafile( "Matrici1.txt", matrice1 );
+                acquisizionedafile( "Matrici2.txt", matrice2 );
                 uguaglianzamatrici( matrice1, matrice2, indice-1 );
             break;
 
@@ -84,14 +84,14 @@ void menu( void )
                 scanf("%d", &n);
                 if (n==1)
                 {
-                    acquisizionedafile( NomeFile1, matrice1 );
+                    acquisizionedafile( "Matrici1.txt", matrice1 );
                     trasposta(matrice1);
                     stampamatrice(matrice1);
                     stampamatricefile (matrice1, "Trasposta.txt");
                 }
                 else if (n==2)
                 {
-                    acquisizionedafile( NomeFile2, matrice2 );
+                    acquisizionedafile( "Matrici2.txt", matrice2 );
                     trasposta(matrice2);
                     stampamatrice(matrice2);
                     stampamatricefile (matrice2, "Trasposta.txt");
