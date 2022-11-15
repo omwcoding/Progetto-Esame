@@ -73,7 +73,7 @@ void menu( void )
 
                 acquisizionedafile( NomeFile1, matrice1 );
                 acquisizionedafile( NomeFile2, matrice2 );
-                uguaglianzamatrici( matrice1[righe][4], matrice2[righe][4], indice-1 );
+                uguaglianzamatrici( matrice1, matrice2, indice-1 );
             break;
 
             case 3 :
@@ -172,7 +172,6 @@ void acquisizionedafile(char * p, int matrice[righe][4] )
             }
         }
         stampamatrice (matrice);
-
         fclose( fileptr);
 }
 
@@ -198,15 +197,15 @@ void trasposta(int matrice[righe][4])
     }
 }
 
-void uguaglianzamatrici(int matrice1[4][4], int matrice2[4][colonne],  int indice )
+void uguaglianzamatrici(int matrice1[righe][colonne], int matrice2[righe][colonne],  int indice )
 {
     int count = 0;
-    int matrice3[4][colonne] = {0};
+    int matrice3[righe][colonne] = {0};
     FILE *Uguaglianzeptr;
     int i, j;
     for( j = 0; j < colonne; j++ )
     {
-        if( matrice1[indice][j] = matrice2[indice][j] )
+        if( matrice1[indice][j] == matrice2[indice][j] )
         {
             count++;
 
@@ -220,23 +219,8 @@ void uguaglianzamatrici(int matrice1[4][4], int matrice2[4][colonne],  int indic
             }
 
         }
-        if( ( Uguaglianzeptr = fopen("Uguaglianza.txt", "w") ) == NULL )
-        {
-            printf("Non e' stato possibile aprire il file 'Uguaglianza.txt'\n");
-        }
-            else
-            {
-                for( i = 0; i < righe; i++ )
-                {
-                    for( j = 0; j < colonne; j++)
-                    {
-                        fprintf( Uguaglianzeptr ,"%d ", matrice3[i][j]);
-                        printf("%d ", matrice3[i][j]);
-                    }
-                    puts("");
-                }
-            fclose(Uguaglianzeptr);
-            }
+        stampamatrice(matrice3);
+        stampamatricefile(matrice3, "Uguaglianza.txt");
 }
 void stampamatrice (int matrice[4][4])
 {
