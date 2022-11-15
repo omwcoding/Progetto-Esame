@@ -12,6 +12,13 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ *  @file funzioni.c
+ *  @brief La funzione "acquisizionedafile" permette di inizializzare delle matrici con i valori contenuti nei file.
+ *
+ *  Abbiamo due file precedentemente creati dal progettista con all'interno due matrici 4x4, contenenti 16 valori seperati da un carattere speciale "#"
+ *  che vengono eliminati durante l'assegnazione dei valori alla nuova matrice.
+ */
 int **acquisizionedafile(char * p)
 {
     int* values = calloc(4*4, sizeof(int));
@@ -83,10 +90,13 @@ int **acquisizionedafile(char * p)
         return matrice;
 }
 
-
-
-
-//Trasposta
+/**
+ *  @file funzioni.c
+ *  @brief La funzione "trasposta" permette di eseguire il calcolo della trasposta su una matrice.
+ *
+ *  L'utente sceglie su quale matrice applicare il calcolo della trasporta, in seguito il programma mantiene la diagonale
+ *  e inverte le matrici triangolari superiori e inferiori.
+ */
 
 int ** trasposta(int ** matrice)
 {
@@ -110,9 +120,14 @@ int ** trasposta(int ** matrice)
 
 }
 
-
-
-//Uguaglianza
+/**
+ *  @file funzioni.c
+ *  @brief La funzione "uguaglianza" permette di confrontare due righe tra due matrici.
+ *
+ *  L'utente sceglie l'indice della riga delle due matrici da confrontare. Verrà stampata una nuova matrice sul file "Uguaglianza.txt" dove:
+ *  1)Se le due righe sono uguali (i valori sono sia uguali che nello stesso ordine), la nuova matrice avrà tutti gli elementi inizalizzati a zero tranne per la riga uguale
+ *  2)Se non ci sono uguaglianze la matrice stampata sarà inizializzata a zero su tutti gli elementi di essa.
+ */
 int ** uguaglianzamatrici(int **matrice1, int **matrice2,  int indice  )
 {
     int count = 0;
@@ -144,7 +159,11 @@ int ** uguaglianzamatrici(int **matrice1, int **matrice2,  int indice  )
         return matrice3;
 }
 
-//Stampamatrice
+/**
+ *  @file funzioni.c
+ *  @brief La funzione "stampamatrice" permette di stampare a schermo la/e matrice/i selezionate dall'utente (come controllo).
+ *
+ */
 void stampamatrice (int ** matrice)
 {
         for (int i = 0; i<righe; i++)
@@ -154,8 +173,11 @@ void stampamatrice (int ** matrice)
         printf("\n");
 }
 
-
-//Stampamatricedafile
+/**
+ *  @file funzioni.c
+ *  @brief La funzione "stampamatricefile" permette di stampare su un file la matrice passata alla funzione.
+ *
+ */
 void stampamatricefile (int ** matrice, char nomefile[])
 {
         FILE *fileptr;
