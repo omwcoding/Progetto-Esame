@@ -35,9 +35,17 @@
 		<Unit filename="Matrici2.txt" />
 		<Unit filename="Trasposta.txt" />
 		<Unit filename="Uguaglianza.txt" />
+		<Unit filename="funzioni.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="funzioni.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menu.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
