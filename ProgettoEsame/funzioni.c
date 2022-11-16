@@ -46,6 +46,7 @@ int **acquisizionedafile(char * p, int *controllo )
     }
         else
         {
+            *controllo = 1;
             printf("Il file e' stato aperto correttamente!\n");
             char StringaLetta[20];
             fscanf(fileptr, "%19s", StringaLetta);
@@ -94,7 +95,7 @@ int **acquisizionedafile(char * p, int *controllo )
                 fscanf(fileptr, "%19s", StringaLetta);
             }
 
-          controllo = 1;
+
         }
 
         fclose( fileptr);

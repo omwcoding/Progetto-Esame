@@ -1,10 +1,12 @@
 # depslib dependency file v1.0
 1668180381 source:c:\users\omar\desktop\progetto esame\progettoesame\a.c
 
-1668532453 source:c:\users\omar\desktop\progetto esame\progettoesame\main.c
+1668596569 source:c:\users\omar\desktop\progetto esame\progettoesame\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	"menu.h"
+	"funzioni.h"
 
 1668536717 source:c:\users\desan\onedrive\desktop\progetto-esame\progettoesame\main.c
 	<stdio.h>
@@ -64,4 +66,40 @@
 
 1668596035 c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\controlli.h
 	<stdio.h>
+
+1668598349 source:c:\users\omar\desktop\progetto esame\progettoesame\funzioni.c
+	"funzioni.h"
+	"controlli.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1668596569 c:\users\omar\desktop\progetto esame\progettoesame\funzioni.h
+	<stdio.h>
+
+1668597668 c:\users\omar\desktop\progetto esame\progettoesame\controlli.h
+	<stdio.h>
+	<stdlib.h>
+	"funzioni.h"
+	"menu.h"
+	"string.h"
+
+1668596569 c:\users\omar\desktop\progetto esame\progettoesame\menu.h
+	<stdbool.h>
+
+1668597131 source:c:\users\omar\desktop\progetto esame\progettoesame\controlli.c
+	<stdio.h>
+	<stdlib.h>
+	"controlli.h"
+	"funzioni.h"
+	"menu.h"
+
+1668597268 source:c:\users\omar\desktop\progetto esame\progettoesame\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<string.h>
+	"menu.h"
+	"funzioni.h"
+	"controlli.h"
 

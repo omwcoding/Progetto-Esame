@@ -50,6 +50,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li class="current"><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
 </div>
@@ -59,8 +60,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <div class="textblock">Here is a list of all documented files with brief descriptions:</div><table>
-  <tr><td class="indexkey"><b>funzioni.h</b> <a href="funzioni_8h_source.html">[code]</a></td><td class="indexvalue"></td></tr>
-  <tr><td class="indexkey"><b>menu.h</b> <a href="menu_8h_source.html">[code]</a></td><td class="indexvalue"></td></tr>
+  <tr><td class="indexkey">Progetto Esame/ProgettoEsame/<a class="el" href="controlli_8c.html">controlli.c</a></td><td class="indexvalue">Questa libreria contiene la funzione di controllo da file </td></tr>
+  <tr><td class="indexkey">Progetto Esame/ProgettoEsame/<a class="el" href="controlli_8h.html">controlli.h</a> <a href="controlli_8h_source.html">[code]</a></td><td class="indexvalue">Questa libreria contiene la funzione di controllo da file </td></tr>
+  <tr><td class="indexkey">Progetto Esame/ProgettoEsame/<a class="el" href="funzioni_8c.html">funzioni.c</a></td><td class="indexvalue">La funzione "stampamatrice" permette di stampare a schermo la/e matrice/i selezionate dall'utente (come controllo) </td></tr>
+  <tr><td class="indexkey">Progetto Esame/ProgettoEsame/<a class="el" href="funzioni_8h.html">funzioni.h</a> <a href="funzioni_8h_source.html">[code]</a></td><td class="indexvalue">Questa libreria contiene tutte le funzioni utilizzate dal modulo "menu" </td></tr>
+  <tr><td class="indexkey">Progetto Esame/ProgettoEsame/<a class="el" href="main_8c.html">main.c</a></td><td class="indexvalue">Questo file utilizza il modulo "menu". Chiamando questa funzione vediamo a schermo il menu di scelta contenente le varie opzioni </td></tr>
+  <tr><td class="indexkey">Progetto Esame/ProgettoEsame/<a class="el" href="menu_8c.html">menu.c</a></td><td class="indexvalue">Questo modulo gestisce le varie funzionalità a cui l'utente può avere accesso </td></tr>
+  <tr><td class="indexkey">Progetto Esame/ProgettoEsame/<b>menu.h</b> <a href="menu_8h_source.html">[code]</a></td><td class="indexvalue"></td></tr>
 </table>
 </div>
 <!--- window showing the filter options -->
@@ -68,7 +74,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-</div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -77,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Tue Nov 15 2022 20:25:47 for ProgettoBaldeCutrignelliDeSantis by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Nov 16 2022 12:38:15 for ProgettoBaldeCutrignelliDeSantis by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>

@@ -22,9 +22,11 @@
  *  Sono stampate a schermo le opzioni disponibili all'utente. Le possibili scelte sono identificate attraverso un elenco e un numero a loro assegnato.
  *  L'utente ha la possibilità di inserire un numero da 1 a 4, a seconda del suo obiettivo. Se il numero inserito dall'utente è minore di 1 o maggiore di 4
  *  ci sarà un errore.
+ *
+ *  BUG: L'inserimento della scelta deve essere per forza di tipo intero (un numero). In caso contrario il programma entrarà in loop.
+ *       A questo punto è consigliato chiudere il terminale, riaprire il programma e inserire un valore valido.
  */
 
-//Ricordare di fare i controlli sulla scelta
 void menu( void )
 {
     int controllo = 0;
@@ -119,8 +121,8 @@ void menu( void )
             break;
 
             default :
-                printf("Valore di input non valido!\n");    //L'inserimento dell'utente nel menu non è valido CASO LIMITE:
-                                                            //caso in cui l'utente inserisca un input non valido (n<1 o n>4)
+                printf("Valore di input non valido!\n");    ///CASO LIMITE: L'utente inserisce un input non valido (n<1 o n>4)
+
             break;
       }
       printf("Faccia la sua prossima scelta, tra quelle elencate prima : ");

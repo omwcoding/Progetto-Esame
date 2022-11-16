@@ -8,6 +8,12 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include "funzioni.h"
+#include "menu.h"
+#include "string.h"
+#define righe 4
+#define colonne 4
 
 int controllodafile( int * controllo);
 void stampamatrice (int ** matrice);

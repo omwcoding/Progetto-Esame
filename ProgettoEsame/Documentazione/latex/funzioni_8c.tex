@@ -1,0 +1,112 @@
+\hypertarget{funzioni_8c}{
+\section{Progetto Esame/ProgettoEsame/funzioni.c File Reference}
+\label{funzioni_8c}\index{Progetto Esame/ProgettoEsame/funzioni.c@{Progetto Esame/ProgettoEsame/funzioni.c}}
+}
+
+
+La funzione \char`\"{}stampamatrice\char`\"{} permette di stampare a schermo la/e matrice/i selezionate dall'utente (come controllo).  
+
+
+{\ttfamily \#include \char`\"{}funzioni.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}controlli.h\char`\"{}}\par
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+Include dependency graph for funzioni.c:
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{funzioni_8c_a81d8288b74eaf064b96c5f36947ded6d}{
+int $\ast$$\ast$ \hyperlink{funzioni_8c_a81d8288b74eaf064b96c5f36947ded6d}{acquisizionedafile} (char $\ast$p, int $\ast$controllo)}
+\label{funzioni_8c_a81d8288b74eaf064b96c5f36947ded6d}
+
+\begin{DoxyCompactList}\small\item\em Prototipi di funzione. \item\end{DoxyCompactList}\item 
+\hypertarget{funzioni_8c_abec9f7c2e26c581e2c6f80312d90f323}{
+int $\ast$$\ast$ {\bfseries trasposta} (int $\ast$$\ast$matrice)}
+\label{funzioni_8c_abec9f7c2e26c581e2c6f80312d90f323}
+
+\item 
+\hypertarget{funzioni_8c_a884d0f6c5acb100269f77dbe7145e980}{
+int $\ast$$\ast$ {\bfseries uguaglianzamatrici} (int $\ast$$\ast$matrice1, int $\ast$$\ast$matrice2, int indice)}
+\label{funzioni_8c_a884d0f6c5acb100269f77dbe7145e980}
+
+\item 
+\hypertarget{funzioni_8c_a2136ab32600c6dd15fd5e4f859e44136}{
+void {\bfseries stampamatricefile} (int $\ast$$\ast$matrice, char nomefile\mbox{[}$\,$\mbox{]})}
+\label{funzioni_8c_a2136ab32600c6dd15fd5e4f859e44136}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+La funzione \char`\"{}stampamatrice\char`\"{} permette di stampare a schermo la/e matrice/i selezionate dall'utente (come controllo). La funzione \char`\"{}stampamatricefile\char`\"{} permette di stampare su un file la matrice passata alla funzione.
+
+La funzione \char`\"{}uguaglianza\char`\"{} permette di confrontare due righe tra due matrici.
+
+La funzione \char`\"{}trasposta\char`\"{} permette di eseguire il calcolo della trasposta su una matrice.
+
+La funzione \char`\"{}acquisizionedafile\char`\"{} permette di inizializzare delle matrici con i valori contenuti nei file.
+
+Questo modulo contiene tutte le funzioni utilizzate dal modulo \char`\"{}menu\char`\"{}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em matrice:int$\ast$$\ast$} & puntatore a puntatore\\
+\hline
+\end{DoxyParams}
+DIFENSIVA: supporta programmazione difensiva per la corretta acquisizione della matrice da file.
+
+\begin{DoxyVersion}{Version}
+1.0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+15/11/2022 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Authors}
+Balde Omar, Cutrignelli Vanessa, De Santis Samantha
+\end{DoxyAuthor}
+Abbiamo due file precedentemente creati dal progettista con all'interno due matrici 4x4, contenenti 16 valori seperati da caratteri speciali quali \char`\"{}\#\char`\"{},eliminati durante l'assegnazione dei valori alla nuova matrice. Creiamo inoltre una variabile \char`\"{}controllo\char`\"{} (neccessaria alla funzione controllodafile) di tipo intero inizializzata a 0. Se l'acquisizione da file è eseguita correttamente la varibile controllo assume valore 1, altrimenti rimane 0.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p:char$\ast$} & puntatore a file \\
+\hline
+\mbox{\tt in}  & {\em controllo:int$\ast$} & puntatore a intero \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+matrice di ritorno 
+
+variabile di controllo apertura file
+\end{DoxyReturn}
+L'utente sceglie su quale matrice applicare il calcolo della trasporta, in seguito il programma mantiene la diagonale della matrice e ne inverte le matrici triangolari superiori e inferiori.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em matrice:int$\ast$$\ast$} & puntatore a puntatore \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+matrice di ritorno
+\end{DoxyReturn}
+L'utente sceglie l'indice della riga delle due matrici da confrontare. Viene poi stampata una nuova matrice sul file \char`\"{}Uguaglianza.txt\char`\"{} dove: 1)Se le due righe sono uguali, ovvero i valori della riga sono equivalenti e nello stesso ordine, la nuova matrice avrà tutti gli elementi inizalizzati a zero tranne per la riga riconosciuta, che assumerà i valori dell'uguaglianza. 2)Se non vi sono uguaglianze la matrice stampata sarà inizializzata totalmente a zero.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em matrice1:int$\ast$$\ast$} & puntatore a puntatore \\
+\hline
+\mbox{\tt in}  & {\em matrice2:int$\ast$$\ast$} & puntatore a puntatore \\
+\hline
+\mbox{\tt in}  & {\em indice:int} & indice fornito dall'utente, il quale seleziona la riga delle matrici \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+matrice di ritorno
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em matrice:int$\ast$$\ast$} & puntatore a puntatore \\
+\hline
+\mbox{\tt in}  & {\em nomefile\mbox{[}$\,$\mbox{]}:char} & array di caratteri \\
+\hline
+\end{DoxyParams}

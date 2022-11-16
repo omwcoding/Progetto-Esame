@@ -25,11 +25,13 @@
  *
  *  @param[in] controllo:int* puntatore a variabile intera
  *  @return valore di controllo
+ *
+ *  DIFENSIVA: supporta programmazione difensiva per la mancata acquisizione da file.
  */
 
 int controllodafile( int * controllo)
 {
- return controllo;
+ return *controllo;
 }
 
 /**
@@ -37,6 +39,8 @@ int controllodafile( int * controllo)
  *  @brief La funzione "stampamatrice" permette di stampare a schermo la/e matrice/i selezionate dall'utente (come controllo).
  *
  *  @param[in] matrice:int** puntatore a puntatore
+
+ *  DIFENSIVA: supporta programmazione difensiva per la corretta acquisizione della matrice da file.
  */
 void stampamatrice (int ** matrice)
 {

@@ -1,0 +1,58 @@
+\hypertarget{menu_8c}{
+\section{Progetto Esame/ProgettoEsame/menu.c File Reference}
+\label{menu_8c}\index{Progetto Esame/ProgettoEsame/menu.c@{Progetto Esame/ProgettoEsame/menu.c}}
+}
+
+
+Questo modulo gestisce le varie funzionalità a cui l'utente può avere accesso.  
+
+
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$stdbool.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include \char`\"{}menu.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}funzioni.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}controlli.h\char`\"{}}\par
+Include dependency graph for menu.c:
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{menu_8c_ad16e5e62f3579a7048e6b981b172885e}{menu} (void)
+\begin{DoxyCompactList}\small\item\em Prototipo di funzione. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Questo modulo gestisce le varie funzionalità a cui l'utente può avere accesso. La funzione \char`\"{}menu\char`\"{} ci fa vedere a schermo le opzioni disponibili all'utente.
+
+\begin{DoxyVersion}{Version}
+1.0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+15/11/2022 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Authors}
+Balde Omar, Cutrignelli Vanessa, De Santis Samantha
+\end{DoxyAuthor}
+Sono stampate a schermo le opzioni disponibili all'utente. Le possibili scelte sono identificate attraverso un elenco e un numero a loro assegnato. L'utente ha la possibilità di inserire un numero da 1 a 4, a seconda del suo obiettivo. Se il numero inserito dall'utente è minore di 1 o maggiore di 4 ci sarà un errore.
+
+BUG: L'inserimento della scelta deve essere per forza di tipo intero (un numero). In caso contrario il programma entrarà in loop. A questo punto è consigliato chiudere il terminale, riaprire il programma e inserire un valore valido. 
+
+\subsection{Function Documentation}
+\hypertarget{menu_8c_ad16e5e62f3579a7048e6b981b172885e}{
+\index{menu.c@{menu.c}!menu@{menu}}
+\index{menu@{menu}!menu.c@{menu.c}}
+\subsubsection[{menu}]{\setlength{\rightskip}{0pt plus 5cm}void menu (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{menu_8c_ad16e5e62f3579a7048e6b981b172885e}
+
+
+Prototipo di funzione. 
+
+
+
+CASO LIMITE: L'utente inserisce un input non valido (n$<$1 o n$>$4) 
+
