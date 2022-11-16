@@ -23,6 +23,7 @@
  *  L'utente ha la possibilità di inserire un numero da 1 a 4, a seconda del suo obiettivo. Se il numero inserito dall'utente è minore di 1 o maggiore di 4
  *  ci sarà un errore.
  *
+ *  INTERVENTO DI TESTING: Cosa succede se l'utente inserisce un input diverso da un numero?
  *  BUG: L'inserimento della scelta deve essere per forza di tipo intero (un numero). In caso contrario il programma entrarà in loop.
  *       A questo punto è consigliato chiudere il terminale, riaprire il programma e inserire un valore valido.
  */
