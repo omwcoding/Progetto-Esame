@@ -15,6 +15,7 @@
  *  @brief Prototipi delle funzioni utilizzate in "menu".
  */
 
+/// Prototipi di funzione
 int ** acquisizionedafile(char * p);
 int ** trasposta(int ** matrice);
 int ** uguaglianzamatrici(int **matrice1, int **matrice2,  int indice  );

@@ -18,6 +18,10 @@
  *
  *  Abbiamo due file precedentemente creati dal progettista con all'interno due matrici 4x4, contenenti 16 valori seperati da un carattere speciale "#"
  *  che vengono eliminati durante l'assegnazione dei valori alla nuova matrice.
+ *
+ *  @param[in] p:char* puntatore a file
+ *  @return matrice di ritorno
+ *
  */
 int **acquisizionedafile(char * p)
 {
@@ -95,6 +99,9 @@ int **acquisizionedafile(char * p)
  *
  *  L'utente sceglie su quale matrice applicare il calcolo della trasporta, in seguito il programma mantiene la diagonale
  *  e inverte le matrici triangolari superiori e inferiori.
+ *
+ *  @param[in] matrice:int** puntatore a puntatore
+ *  @return matrice di ritorno
  */
 
 int ** trasposta(int ** matrice)
@@ -126,14 +133,20 @@ int ** trasposta(int ** matrice)
  *  L'utente sceglie l'indice della riga delle due matrici da confrontare. Verrà stampata una nuova matrice sul file "Uguaglianza.txt" dove:
  *  1)Se le due righe sono uguali (i valori sono sia uguali che nello stesso ordine), la nuova matrice avrà tutti gli elementi inizalizzati a zero tranne per la riga uguale
  *  2)Se non ci sono uguaglianze la matrice stampata sarà inizializzata a zero su tutti gli elementi di essa.
+ *
+ *  @param[in] matrice1:int** puntatore a puntatore
+ *  @param[in] matrice2:int** puntatore a puntatore
+ *  @param[in] indice:int indice fornito dall'utente, il quale seleziona la riga delle matrici
+ *  @return matrice di ritorno
  */
 int ** uguaglianzamatrici(int **matrice1, int **matrice2,  int indice  )
 {
     int count = 0;
-    FILE *Uguaglianzeptr;
-    int i, j;
+    //FILE *Uguaglianzeptr;
+    int j;
     int* values = calloc(4*4, sizeof(int));
     int** matrice3 = malloc(4* sizeof(int*));
+
     for (int i=0; i<4; ++i)
     {
         matrice3[i] = values + i*4;
@@ -162,9 +175,11 @@ int ** uguaglianzamatrici(int **matrice1, int **matrice2,  int indice  )
  *  @file funzioni.c
  *  @brief La funzione "stampamatrice" permette di stampare a schermo la/e matrice/i selezionate dall'utente (come controllo).
  *
+ *  @param[in] matrice:int** puntatore a puntatore
  */
 void stampamatrice (int ** matrice)
 {
+        printf("La matrice selezionata e' : \n");
         for (int i = 0; i<righe; i++)
         {
             printf("%d %d %d %d\n", matrice[i][0], matrice[i][1], matrice[i][2], matrice[i][3]);
@@ -176,6 +191,8 @@ void stampamatrice (int ** matrice)
  *  @file funzioni.c
  *  @brief La funzione "stampamatricefile" permette di stampare su un file la matrice passata alla funzione.
  *
+ *  @param[in] matrice:int** puntatore a puntatore
+ *  @param[in] nomefile[]:char array di caratteri
  */
 void stampamatricefile (int ** matrice, char nomefile[])
 {

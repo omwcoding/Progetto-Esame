@@ -12,6 +12,8 @@
 *   @file main.c
 *   @brief Questo file utilizza il modulo "menu".
 *   Chiamando questa funzione vediamo a schermo il menu di scelta contenente le varie opzioni.
+*
+*   @return 0 se il programma è stato eseguito correttamente
 */
 
 int main()

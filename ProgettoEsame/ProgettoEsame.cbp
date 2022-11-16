@@ -35,6 +35,10 @@
 		<Unit filename="Matrici2.txt" />
 		<Unit filename="Trasposta.txt" />
 		<Unit filename="Uguaglianza.txt" />
+		<Unit filename="controlli.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="controlli.h" />
 		<Unit filename="funzioni.c">
 			<Option compilerVar="CC" />
 		</Unit>

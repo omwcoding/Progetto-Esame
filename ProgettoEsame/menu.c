@@ -6,6 +6,10 @@
  *  @date 15/11/2022
  *  @authors Balde Omar, Cutrignelli Vanessa, De Santis Samantha
  */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "menu.h"
 #include "funzioni.h"
 
@@ -21,11 +25,6 @@
 //Ricordare di fare i controlli sulla scelta
 void menu( void )
 {
-    char NomeFile1[15], NomeFile2[15];
-    int scelta, indice;
-    int ** matrice1; //Puntatore a puntatore della matrice 1
-    int ** matrice2; //Puntatore a puntatore della matrice 2
-    int ** matrice3; //Puntatore a puntatore della matrice 3
 
     printf( "Scelga una delle seguenti opzioni : \n"
             "1. Acquisizione di matrici da file\n"
@@ -42,7 +41,7 @@ void menu( void )
             case 1 :
                 printf("\nHa scelto di acquisire delle matrici da file:\n");
                 printf("Scrivere il nome del primo file da cui acquisire la matrice\n"
-                       "(Si rammenta che la scelta verte tra Matrici1.txt e Matrici2.txt):\n");
+                       "(Si rammenta che la scelta verte tra Matrici1.txt e Matrici2.txt): ");
                 scanf("%s", NomeFile1);
 
                 if (!(strcmp(NomeFile1, "Matrici1.txt" )))      //Controllo sul nome del primo file inserito
@@ -52,7 +51,8 @@ void menu( void )
                 }
                     else
                     {
-                        printf("Il file da lei scelto non e' disponibile\n");
+                        printf("Il file da lei scelto non e' disponibile! Sara' riportato al menu' iniziale\n\n");
+                        break;
                     }
 
                 printf("Scrivere il nome del secondo file da cui acquisire la matrice: ");
@@ -64,7 +64,7 @@ void menu( void )
                 }
                     else
                     {
-                        printf("Il file da lei scelto non e' disponibile!\n");
+                        printf("Il file da lei scelto non e' disponibile! Sara' riportato al menu' iniziale\n\n");
                     }
             break;
 
@@ -109,7 +109,7 @@ void menu( void )
                                                             //caso in cui l'utente inserisca un input non valido (n<1 o n>4)
             break;
       }
-      printf("Faccia la sua prossima scelta, tra quelle elencate prima\n");
+      printf("Faccia la sua prossima scelta, tra quelle elencate prima : ");
       scanf("%d", &scelta );
     }
 }
