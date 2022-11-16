@@ -44,7 +44,7 @@ int controllodafile( int * controllo)
  */
 void stampamatrice (int ** matrice)
 {
-        printf("La matrice selezionata e' : \n");
+        printf("La matrice e' : \n");
         for (int i = 0; i<righe; i++)
         {
             printf("%d %d %d %d\n", matrice[i][0], matrice[i][1], matrice[i][2], matrice[i][3]);
