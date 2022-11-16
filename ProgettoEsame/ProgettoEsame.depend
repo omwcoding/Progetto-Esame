@@ -26,13 +26,15 @@
 	<stdlib.h>
 	<string.h>
 
-1668590197 source:c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\funzioni.c
+1668596024 source:c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\funzioni.c
 	"funzioni.h"
+	"controlli.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1668590197 c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\funzioni.h
+1668596035 c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\funzioni.h
+	<stdio.h>
 
 1668590197 source:c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\main.c
 	<stdio.h>
@@ -41,17 +43,25 @@
 	"menu.h"
 	"funzioni.h"
 
-1668590197 c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\menu.h
+1668594922 c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\menu.h
+	<stdbool.h>
 
-1668590317 source:c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\menu.c
+1668594922 source:c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\menu.c
 	<stdio.h>
 	<stdlib.h>
+	<stdbool.h>
 	<string.h>
 	"menu.h"
 	"funzioni.h"
-
-1668589167 source:c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\controlli.c
 	"controlli.h"
 
-1668590197 c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\controlli.h
+1668595950 source:c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\controlli.c
+	<stdio.h>
+	<stdlib.h>
+	"controlli.h"
+	"funzioni.h"
+	"menu.h"
+
+1668596035 c:\users\vanessa\onedrive\desktop\uni - materie\laboratorio\github_prog\progetto-esame\progettoesame\controlli.h
+	<stdio.h>
 

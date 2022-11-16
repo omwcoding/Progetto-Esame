@@ -7,10 +7,10 @@
  *  @authors Balde Omar, Cutrignelli Vanessa, De Santis Samantha
  */
 
+#include <stdbool.h>
 #define righe 4
 #define colonne 4
 
-//chiedere a sario su questo
 
 /// @var NomeFile1, NomeFile2, scelta, indice, matrice1, matrice2, matrice3
     char NomeFile1[15], NomeFile2[15];

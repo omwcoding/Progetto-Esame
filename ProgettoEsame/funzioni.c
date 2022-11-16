@@ -8,6 +8,7 @@
  */
 
 #include "funzioni.h"
+#include "controlli.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -16,14 +17,18 @@
  *  @file funzioni.c
  *  @brief La funzione "acquisizionedafile" permette di inizializzare delle matrici con i valori contenuti nei file.
  *
- *  Abbiamo due file precedentemente creati dal progettista con all'interno due matrici 4x4, contenenti 16 valori seperati da un carattere speciale "#"
- *  che vengono eliminati durante l'assegnazione dei valori alla nuova matrice.
+ *  Abbiamo due file precedentemente creati dal progettista con all'interno due matrici 4x4, contenenti 16 valori seperati da caratteri
+ *  speciali quali "#",eliminati durante l'assegnazione dei valori alla nuova matrice.
+ *  Creiamo inoltre una variabile "controllo" (neccessaria alla funzione controllodafile) di tipo intero inizializzata a 0.
+ *  Se l'acquisizione da file è eseguita correttamente la varibile controllo assume valore 1, altrimenti rimane 0.
  *
  *  @param[in] p:char* puntatore a file
+ *  @param[in] controllo:int* puntatore a intero
  *  @return matrice di ritorno
+ *  @return variabile di controllo apertura file
  *
  */
-int **acquisizionedafile(char * p)
+int **acquisizionedafile(char * p, int *controllo )
 {
     int* values = calloc(4*4, sizeof(int));
     int** matrice = malloc(4* sizeof(int*));
@@ -37,6 +42,7 @@ int **acquisizionedafile(char * p)
     if( ( fileptr = fopen(p, "r") ) == NULL )
     {
         printf("Non e' stato possibile aprire il file\n");
+
     }
         else
         {
@@ -87,9 +93,12 @@ int **acquisizionedafile(char * p)
                 j = 0;
                 fscanf(fileptr, "%19s", StringaLetta);
             }
+
+          controllo = 1;
         }
 
         fclose( fileptr);
+
         return matrice;
 }
 
@@ -98,7 +107,7 @@ int **acquisizionedafile(char * p)
  *  @brief La funzione "trasposta" permette di eseguire il calcolo della trasposta su una matrice.
  *
  *  L'utente sceglie su quale matrice applicare il calcolo della trasporta, in seguito il programma mantiene la diagonale
- *  e inverte le matrici triangolari superiori e inferiori.
+ *  della matrice e ne inverte le matrici triangolari superiori e inferiori.
  *
  *  @param[in] matrice:int** puntatore a puntatore
  *  @return matrice di ritorno
@@ -130,19 +139,20 @@ int ** trasposta(int ** matrice)
  *  @file funzioni.c
  *  @brief La funzione "uguaglianza" permette di confrontare due righe tra due matrici.
  *
- *  L'utente sceglie l'indice della riga delle due matrici da confrontare. Verrà stampata una nuova matrice sul file "Uguaglianza.txt" dove:
- *  1)Se le due righe sono uguali (i valori sono sia uguali che nello stesso ordine), la nuova matrice avrà tutti gli elementi inizalizzati a zero tranne per la riga uguale
- *  2)Se non ci sono uguaglianze la matrice stampata sarà inizializzata a zero su tutti gli elementi di essa.
+ *  L'utente sceglie l'indice della riga delle due matrici da confrontare. Viene poi stampata una nuova matrice
+ *  sul file "Uguaglianza.txt" dove:
+ *  1)Se le due righe sono uguali, ovvero i valori della riga sono equivalenti e nello stesso ordine, la nuova matrice
+ *    avrà tutti gli elementi inizalizzati a zero tranne per la riga riconosciuta, che assumerà i valori dell'uguaglianza.
+ *  2)Se non vi sono uguaglianze la matrice stampata sarà inizializzata totalmente a zero.
  *
- *  @param[in] matrice1:int** puntatore a puntatore
- *  @param[in] matrice2:int** puntatore a puntatore
- *  @param[in] indice:int indice fornito dall'utente, il quale seleziona la riga delle matrici
+ *  @param[in] matrice1:int**   puntatore a puntatore
+ *  @param[in] matrice2:int**   puntatore a puntatore
+ *  @param[in] indice:int       indice fornito dall'utente, il quale seleziona la riga delle matrici
  *  @return matrice di ritorno
  */
 int ** uguaglianzamatrici(int **matrice1, int **matrice2,  int indice  )
 {
     int count = 0;
-    //FILE *Uguaglianzeptr;
     int j;
     int* values = calloc(4*4, sizeof(int));
     int** matrice3 = malloc(4* sizeof(int*));
@@ -171,21 +181,7 @@ int ** uguaglianzamatrici(int **matrice1, int **matrice2,  int indice  )
     return matrice3;
 }
 
-/**
- *  @file funzioni.c
- *  @brief La funzione "stampamatrice" permette di stampare a schermo la/e matrice/i selezionate dall'utente (come controllo).
- *
- *  @param[in] matrice:int** puntatore a puntatore
- */
-void stampamatrice (int ** matrice)
-{
-        printf("La matrice selezionata e' : \n");
-        for (int i = 0; i<righe; i++)
-        {
-            printf("%d %d %d %d\n", matrice[i][0], matrice[i][1], matrice[i][2], matrice[i][3]);
-        }
-        printf("\n");
-}
+
 
 /**
  *  @file funzioni.c
