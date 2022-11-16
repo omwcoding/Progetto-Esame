@@ -26,6 +26,9 @@
  *  INTERVENTO DI TESTING: Cosa succede se l'utente inserisce un input diverso da un numero?
  *  BUG: L'inserimento della scelta deve essere per forza di tipo intero (un numero). In caso contrario il programma entrarà in loop.
  *       A questo punto è consigliato chiudere il terminale, riaprire il programma e inserire un valore valido.
+ *
+ *  INTERVENTO DI TESTING: Cosa succede se l'utente inserisce un indice maggiore o minore al numero delle righe della matrice?
+ *  DIFENSIVA: supporta programmazione difensiva per la corretta acquisizione dell'indice della matrice da tastiera.
  */
 
 void menu( void )
@@ -81,15 +84,22 @@ void menu( void )
                     printf("Ora scelga l'indice della riga da confrontare: ");
                     scanf("%d", &indice );      //L'utente inserisce l'indice della riga delle due matrici da confrontare
 
-                    matrice3 = uguaglianzamatrici( matrice1, matrice2, indice-1);   //Assegnamo il ritorno della funzione "uguaglianzamatrici" alla matrice3
+                    if (indice>0 && indice<5)
+                    {
+                        matrice3 = uguaglianzamatrici( matrice1, matrice2, indice-1);   //Assegnamo il ritorno della funzione "uguaglianzamatrici" alla matrice3
+                        stampamatrice(matrice3);                                //Richiamiamo la funzione "stampamatrice" con parametro "matrice3"
+                        stampamatricefile(matrice3, "Uguaglianza.txt");         //Richiamiamo la funzione "stampamatricefile" con parametri "matrice3" e "Uguaglianza.txt"
+                    }
+                        else
+                        {
+                            printf("L'indice inserito non e' valido! La matrice e' composta da 4 righe!\n");
+                        }
+                    }
+                    else
+                    {
+                        printf("Non e' stato possibile fare il confronto poiche' non ha acqusistito prima le matrici dai file\n");
+                    }
 
-                    stampamatrice(matrice3);                                //Richiamiamo la funzione "stampamatrice" con parametro "matrice3"
-                    stampamatricefile(matrice3, "Uguaglianza.txt");         //Richiamiamo la funzione "stampamatricefile" con parametri "matrice3" e "Uguaglianza.txt"
-                   }
-                else
-                   {
-                    printf("Non e' stato possibile fare il confronto poiche' non ha acqusistito prima le matrici dai file\n");
-                   }
             break;
 
             case 3 :

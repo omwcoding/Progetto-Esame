@@ -14,7 +14,6 @@ Questo modulo gestisce le varie funzionalità a cui l'utente può avere accesso.
 {\ttfamily \#include \char`\"{}menu.h\char`\"{}}\par
 {\ttfamily \#include \char`\"{}funzioni.h\char`\"{}}\par
 {\ttfamily \#include \char`\"{}controlli.h\char`\"{}}\par
-Include dependency graph for menu.c:
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,7 +35,9 @@ Balde Omar, Cutrignelli Vanessa, De Santis Samantha
 \end{DoxyAuthor}
 Sono stampate a schermo le opzioni disponibili all'utente. Le possibili scelte sono identificate attraverso un elenco e un numero a loro assegnato. L'utente ha la possibilità di inserire un numero da 1 a 4, a seconda del suo obiettivo. Se il numero inserito dall'utente è minore di 1 o maggiore di 4 ci sarà un errore.
 
-BUG: L'inserimento della scelta deve essere per forza di tipo intero (un numero). In caso contrario il programma entrarà in loop. A questo punto è consigliato chiudere il terminale, riaprire il programma e inserire un valore valido. 
+INTERVENTO DI TESTING: Cosa succede se l'utente inserisce un input diverso da un numero? BUG: L'inserimento della scelta deve essere per forza di tipo intero (un numero). In caso contrario il programma entrarà in loop. A questo punto è consigliato chiudere il terminale, riaprire il programma e inserire un valore valido.
+
+INTERVENTO DI TESTING: Cosa succede se l'utente inserisce un indice maggiore o minore al numero delle righe della matrice? DIFENSIVA: supporta programmazione difensiva per la corretta acquisizione dell'indice della matrice da tastiera. 
 
 \subsection{Function Documentation}
 \hypertarget{menu_8c_ad16e5e62f3579a7048e6b981b172885e}{

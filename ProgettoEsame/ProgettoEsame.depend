@@ -87,14 +87,14 @@
 1668596569 c:\users\omar\desktop\progetto esame\progettoesame\menu.h
 	<stdbool.h>
 
-1668599252 source:c:\users\omar\desktop\progetto esame\progettoesame\controlli.c
+1668599462 source:c:\users\omar\desktop\progetto esame\progettoesame\controlli.c
 	<stdio.h>
 	<stdlib.h>
 	"controlli.h"
 	"funzioni.h"
 	"menu.h"
 
-1668599123 source:c:\users\omar\desktop\progetto esame\progettoesame\menu.c
+1668600990 source:c:\users\omar\desktop\progetto esame\progettoesame\menu.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>

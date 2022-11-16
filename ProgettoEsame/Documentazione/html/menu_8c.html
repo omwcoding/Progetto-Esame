@@ -71,13 +71,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;menu.h&quot;</code><br/>
 <code>#include &quot;<a class="el" href="funzioni_8h_source.html">funzioni.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="controlli_8h_source.html">controlli.h</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for menu.c:</div>
-<div class="dyncontent">
-<div class="center"><img src="menu_8c__incl.png" border="0" usemap="#_progetto_01_esame_2_progetto_esame_2menu_8c" alt=""/></div>
-<map name="_progetto_01_esame_2_progetto_esame_2menu_8c" id="_progetto_01_esame_2_progetto_esame_2menu_8c">
-</map>
-</div>
 </div><table class="memberdecls">
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -91,7 +84,8 @@ Functions</h2></td></tr>
 <dl class="date"><dt><b>Date:</b></dt><dd>15/11/2022 </dd></dl>
 <dl class="author"><dt><b>Authors:</b></dt><dd>Balde Omar, Cutrignelli Vanessa, De Santis Samantha</dd></dl>
 <p>Sono stampate a schermo le opzioni disponibili all'utente. Le possibili scelte sono identificate attraverso un elenco e un numero a loro assegnato. L'utente ha la possibilità di inserire un numero da 1 a 4, a seconda del suo obiettivo. Se il numero inserito dall'utente è minore di 1 o maggiore di 4 ci sarà un errore.</p>
-<p>BUG: L'inserimento della scelta deve essere per forza di tipo intero (un numero). In caso contrario il programma entrarà in loop. A questo punto è consigliato chiudere il terminale, riaprire il programma e inserire un valore valido. </p>
+<p>INTERVENTO DI TESTING: Cosa succede se l'utente inserisce un input diverso da un numero? BUG: L'inserimento della scelta deve essere per forza di tipo intero (un numero). In caso contrario il programma entrarà in loop. A questo punto è consigliato chiudere il terminale, riaprire il programma e inserire un valore valido.</p>
+<p>INTERVENTO DI TESTING: Cosa succede se l'utente inserisce un indice maggiore o minore al numero delle righe della matrice? DIFENSIVA: supporta programmazione difensiva per la corretta acquisizione dell'indice della matrice da tastiera. </p>
 </div><hr/><h2>Function Documentation</h2>
 <a class="anchor" id="ad16e5e62f3579a7048e6b981b172885e"></a><!-- doxytag: member="menu.c::menu" ref="ad16e5e62f3579a7048e6b981b172885e" args="(void)" -->
 <div class="memitem">
@@ -130,7 +124,7 @@ Functions</h2></td></tr>
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Wed Nov 16 2022 12:38:15 for ProgettoBaldeCutrignelliDeSantis by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Wed Nov 16 2022 13:18:54 for ProgettoBaldeCutrignelliDeSantis by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.3 </small></address>
 </body>
