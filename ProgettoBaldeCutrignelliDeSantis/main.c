@@ -22,7 +22,3 @@ int main()
     menu();
     return 0;
 }
-
-//fare un controllo : quando facciamo una scelta tra le opzioni elencate nel menu, inserendo un carattere va in loop
-//capire se ci serve un altro modulo per il tipo di dato astratto Matrice
-

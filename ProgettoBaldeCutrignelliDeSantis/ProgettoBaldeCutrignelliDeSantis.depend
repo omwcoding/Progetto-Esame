@@ -103,3 +103,45 @@
 	"funzioni.h"
 	"controlli.h"
 
+1668599462 source:c:\users\omar\desktop\progetto esame\progettobaldecutrignellidesantis\controlli.c
+	<stdio.h>
+	<stdlib.h>
+	"controlli.h"
+	"funzioni.h"
+	"menu.h"
+
+1668597668 c:\users\omar\desktop\progetto esame\progettobaldecutrignellidesantis\controlli.h
+	<stdio.h>
+	<stdlib.h>
+	"funzioni.h"
+	"menu.h"
+	"string.h"
+
+1668596569 c:\users\omar\desktop\progetto esame\progettobaldecutrignellidesantis\funzioni.h
+	<stdio.h>
+
+1668596569 c:\users\omar\desktop\progetto esame\progettobaldecutrignellidesantis\menu.h
+	<stdbool.h>
+
+1668963778 source:c:\users\omar\desktop\progetto esame\progettobaldecutrignellidesantis\funzioni.c
+	"funzioni.h"
+	"controlli.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1668957985 source:c:\users\omar\desktop\progetto esame\progettobaldecutrignellidesantis\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"menu.h"
+	"funzioni.h"
+
+1668958455 source:c:\users\omar\desktop\progetto esame\progettobaldecutrignellidesantis\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"menu.h"
+	"funzioni.h"
+	"controlli.h"
+
